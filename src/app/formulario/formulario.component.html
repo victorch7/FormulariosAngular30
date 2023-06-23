@@ -12,7 +12,11 @@
                     <input type="text" class="form-control" name="edad" placeholder="Ingrese su edad" [(ngModel)]="persona.edad" required #edad="ngModel">
                     <div class="alert alert-danger my-3" [hidden]="edad.valid || edad.pristine">La edad es obligatoria</div>
                 </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <!--<button [class]="{'disabled': !(nombre.valid && edad.valid)}" type="submit" class="btn btn-primary" >Enviar</button>-->
+                <!--<button [disabled]="nombre.invalid || edad.invalid" type="submit" class="btn btn-primary" >Enviar</button>-->
+                <button [disabled]="validarCampos()" type="submit" class="btn btn-primary" >Enviar</button>
+
+
             </div>
         </form>
     </div>

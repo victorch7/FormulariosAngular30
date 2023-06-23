@@ -17,5 +17,10 @@ export class FormularioComponent {
     console.log(this.persona);
   }
   
+  validarCampos():boolean {
+    return !(this.persona.nombre && this.persona.edad);
+  }
+    
+  
 
 }
