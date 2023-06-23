@@ -1,18 +1,36 @@
 <div class="container justify-content-center">
     <div class="card body my-5 p-3">
-        <div class="card-body">
-            <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" name="nombre" placeholder="Ingrese su nombre" [(ngModel)]="persona.nombre">
+        <form (ngSubmit)="procesar()">
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" placeholder="Ingrese su nombre" [(ngModel)]="persona.nombre" required #nombre="ngModel">
+                    <div class="alert alert-danger my-3" [hidden]="nombre.valid || nombre.pristine">El nombre es obligatorio</div>
+                </div>
+                <div class="mb-3">
+                    <label for="edad" class="form-label">Edad</label>
+                    <input type="text" class="form-control" name="edad" placeholder="Ingrese su edad" [(ngModel)]="persona.edad" required #edad="ngModel">
+                    <div class="alert alert-danger my-3" [hidden]="edad.valid || edad.pristine">La edad es obligatoria</div>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
             </div>
-            <div class="mb-3">
-                <label for="edad" class="form-label">Edad</label>
-                <input type="text" class="form-control" name="edad" placeholder="Ingrese su edad" [(ngModel)]="persona.edad">
-            </div>
-            <button type="button" class="btn btn-primary">Enviar</button>
-        </div>
+        </form>
     </div>
-
+    <label>Nombre Errors: -></label>{{nombre.errors | json}} <br>
+    <label>Edad Errors: -></label>{{edad.errors | json}} <br>    
+    <hr>
+    <label>Nombre Valid: -></label>{{nombre.valid}} <br>
+    <label>Edad Valid: -></label>{{edad.valid}} 
+    <hr>
+    <label>Nombre Pristine: -></label>{{nombre.pristine}} <br>
+    <label>Edad Pristine: -></label>{{edad.pristine}} 
+    <hr>
+    <label>Nombre Touched: -></label>{{nombre.touched}} <br>
+    <label>Edad Touched: -></label>{{edad.touched}} 
+    <hr>
+    <label>Nombre Dirty: -></label>{{nombre.dirty}} <br>
+    <label>Edad Dirty: -></label>{{edad.dirty}} 
+    <hr>
     {{persona | json}}
 
 </div>
