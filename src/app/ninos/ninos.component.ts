@@ -1,4 +1,4 @@
-import { Component , Input} from '@angular/core';
+import { Component , Input, Output, EventEmitter} from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -9,5 +9,12 @@ import { Title } from '@angular/platform-browser';
 export class NinosComponent {
 
   @Input() title?: string 
+  @Output() titleChange = new EventEmitter<string>();
+
+  emitTitleChange(){
+
+  this.titleChange.emit(this.title); //capture el output y lo guarde la variable
+
+  }
 
 }

@@ -1,4 +1,7 @@
-<p>ninos works!</p>
+<!-- <p>ninos works!</p>
 
 {{title}}
-<input type="text" class="form-control" [(ngModel)] = "title">
+<input type="text" class="form-control" [(ngModel)] = "title"> -->
+
+<h2>Componente hijo</h2>
+<input type="text" class="form-control" (keyup)="emitTitleChange()" [ngModel]="title">

@@ -27,7 +27,7 @@ export class Formulario3Component {
 
   formUser = this.fb.group({ //constructor con formbuil con sus caracteristicas nos libra de instanciar
     'nombre': ['', Validators.required],
-    'email': ['' , Validators.required, Validators.email],
+    'email': ['' , [Validators.required, Validators.email]], 
   });
 
   procesar(){ /**Metodo para procesar la informacion */
