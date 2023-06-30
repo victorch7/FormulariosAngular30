@@ -1,2 +1,12 @@
-<app-formulario></app-formulario>
+<!--<app-formulario></app-formulario>-->
+<!--<app-formulario3></app-formulario3>-->
+<div class="container">
+
+   <h1> {{title}}   </h1>
+
+   <input type="text" class="form-control" [(ngModel)] = "title">
+    <app-ninos [title]="title"></app-ninos>
+
+</div>
+
 

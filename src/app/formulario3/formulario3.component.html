@@ -1,0 +1,28 @@
+<div class="card offset-1 mt-5 p-3">
+
+<form [formGroup]="formUser" (ngSubmit)="procesar()"> <!--Al darle al boton llama al metodo-->
+    <div class="card-body">
+        <div class="mb-2">
+            <label class="form-label">Nombre</label>
+            <input type="text" formControlName ="nombre" class="form-control" placeholder="Ingrese nombre" >
+            <div class="alert alert-danger mt-2 " [hidden]="nombre.valid || nombre.pristine">
+                    El nombre es obligatorio
+            </div>
+        </div>
+        <div class="mb-2">
+            <label class="form-label">Email</label>
+            <input type="text" formControlName ="email" class="form-control" placeholder="Ingrese email">
+            <div class="alert alert-danger mt-2 " [hidden]="email.valid || email.pristine">
+                <span  *ngIf="email.errors?.['required']">Email es obligatorio</span> 
+                <!--entra al array si hay ese valor y si hay se vuelve falso e ignora los demas valores del arreglo-->
+                <span  *ngIf="email.errors?.['email']">Email no es valido</span>
+            </div> 
+        </div>
+    </div>
+    <button class="btn btn-success" [disabled]="formUser.invalid"> Enviar</button> <!--al mommento de accder al formuser si es invalido los campos-->
+</form>
+</div>
+
+<!--{{email.errors | json}}-->
+
+<!--{{formUser.get('nombre')?.value}}-->

@@ -1,6 +1,6 @@
 <div class="container justify-content-center">
     <div class="card body my-5 p-3">
-        <form (ngSubmit)="procesar()">
+        <form (ngSubmit)="procesar()" #formContact="ngForm">
             <div class="card-body">
                 <div class="mb-3">
                     <label for="nombre" class="form-label">Nombre</label>
@@ -14,8 +14,7 @@
                 </div>
                 <!--<button [class]="{'disabled': !(nombre.valid && edad.valid)}" type="submit" class="btn btn-primary" >Enviar</button>-->
                 <!--<button [disabled]="nombre.invalid || edad.invalid" type="submit" class="btn btn-primary" >Enviar</button>-->
-                <button [disabled]="validarCampos()" type="submit" class="btn btn-primary" >Enviar</button>
-
+                <button type="submit" class="btn btn-primary" [disabled]="formContact.invalid">Enviar</button>
 
             </div>
         </form>
@@ -36,6 +35,8 @@
     <label>Edad Dirty: -></label>{{edad.dirty}} 
     <hr>
     {{persona | json}}
+
+    {{formContact.valid}}
 
 </div>
 
